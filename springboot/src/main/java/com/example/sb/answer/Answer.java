@@ -3,6 +3,7 @@ package com.example.sb.answer;
 import java.time.LocalDateTime;
 
 import com.example.sb.question.Question;
+import com.example.sb.user.SiteUser;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +30,12 @@ public class Answer {
 
    @ManyToOne
    private Question question;  //질문 객체(질문에 해당하는 모든 정보가 다 있음)
+   
+   //글작성시 작성자정보를 가져다 쓰기위해
+   @ManyToOne
+   private SiteUser author; //답변을 작성한 작성자 정보
+   
+   private LocalDateTime modifyDate;
 }
 
 
